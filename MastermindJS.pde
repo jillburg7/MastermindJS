@@ -153,7 +153,7 @@ void update(int x, int y) {
       clearBoard(); //initalize game board
       g.clear();    //clear guess structure
       
-      set = false;
+      //set = false;
       generateCodeMap();  //set new random code
       setGuessMode();
       redraw();
@@ -397,8 +397,8 @@ void setColors() {
   ORANGE = #FF9D28;  //color(255, 157, 40);   // 1
   YELLOW = #FFD923;  //color(255, 235, 0);    // 2
   GREEN = #A8FF0C;   //color(168, 255, 12);   // 3
-  TEAL = #5BFFC6;    //color(91, 255, 198);   // 4
-  BLUE = #6DD6FF;    //color(109, 214, 255);  // 5
+  TEAL = #51DCAE;    //color(91, 255, 198);   // 4
+  BLUE = #1EB5E2;    //color(109, 214, 255);  // 5
   PURPLE = #AA66CC;  //color(196, 119, 255);  // 6
   PINK = #FF9BF0;    //color(255, 155, 240);  // 7 ---ending vals
   EMPTY = #D1D1D1;   //color(209, 209, 209);  // 8 -- empty
@@ -407,7 +407,7 @@ void setColors() {
 } //end setColors
 
 color[] getColors() {
-  color[] p = {#FF3C32, #FF9D28, #FFD923, #A8FF0C, #5BFFC6, #6DD6FF, #AA66CC, #FF9BF0};
+  color[] p = {#FF3C32, #FF9D28, #FFD923, #A8FF0C, #51DCAE, #1EB5E2, #AA66CC, #FF9BF0};
   return p; 
 } //end getColors
 
