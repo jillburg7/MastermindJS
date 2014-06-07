@@ -29,7 +29,7 @@ int off = 25;
 int xLoc, yLoc;
 int sizer;
 int xoff, yoff;
-int xScale, yScale;
+float xScale, yScale;
 
 //colors
 color RED, ORANGE, YELLOW, GREEN, TEAL, BLUE, PURPLE, PINK, EMPTY, WHITE, BLACK;
@@ -39,9 +39,9 @@ void setup () {
   set = false;
   
   CURRENT_PROGRAM_MODE = -1;
-  
-  xScale = width/570;
-  yScale = height/900;
+ 
+  scale = 0.8;
+// yScale = 0.8; //height/900;
   xoff = (off + 25);
   yoff = 100;
 
@@ -71,8 +71,7 @@ void draw() {
   if (CURRENT_PROGRAM_MODE == GUESS_MODE) {
     if(clicked != null && g.size() < 4) {
       position = pQ.remove(0);
-      console.log(position);
-      sizer = 50;
+      sizer = 48;
       xLoc = (position*70)+45+(xoff-5);
       yLoc = 842;
       Peg p = new Peg(xLoc, yLoc, sizer, clicked);
@@ -201,10 +200,11 @@ void update(int x, int y) {
       }
     }//end revealButt.pressed()
     else if (tutorialButt.over()) {
+//      alert("PLAYYYY!");
       //show tutorial !!! 
       //make boolean to let game known what state its in and only update screen if backButt is pressed?
 //      getTutorial();
-//      set = true;
+      set = true;
 //      redraw();
     }
   }//end if (mousePressed)
@@ -245,7 +245,6 @@ void mousePressed() {
     if (temp != null && (CURRENT_PROGRAM_MODE == GUESS_MODE)) {
       //Removes the mapping for this key from guess peg map 
       setEmpty(g.remove(temp));
-      console.log(temp);
       pQ.add(temp);
     }
   }
@@ -293,6 +292,7 @@ void clearBoard() {
 
 //Updates guess peg y-coords & draws them in their perminant location
 void commitGuess() {
+  stroke(0);
   if (g.size() > 0) {
     for (int i = 0; i < 4; i++) {
       g.get(i).setY(yLoc+27);  //set respective y location
@@ -398,7 +398,7 @@ void setColors() {
   YELLOW = #FFD923;  //color(255, 235, 0);    // 2
   GREEN = #A8FF0C;   //color(168, 255, 12);   // 3
   TEAL = #51DCAE;    //color(91, 255, 198);   // 4
-  BLUE = #1EB5E2;    //color(109, 214, 255);  // 5
+  BLUE = #1B83CC;    //color(109, 214, 255);  // 5
   PURPLE = #AA66CC;  //color(196, 119, 255);  // 6
   PINK = #FF9BF0;    //color(255, 155, 240);  // 7 ---ending vals
   EMPTY = #D1D1D1;   //color(209, 209, 209);  // 8 -- empty
@@ -407,7 +407,7 @@ void setColors() {
 } //end setColors
 
 color[] getColors() {
-  color[] p = {#FF3C32, #FF9D28, #FFD923, #A8FF0C, #51DCAE, #1EB5E2, #AA66CC, #FF9BF0};
+  color[] p = {#FF3C32, #FF9D28, #FFD923, #A8FF0C, #51DCAE, #1B83CC, #AA66CC, #FF9BF0};
   return p; 
 } //end getColors
 
